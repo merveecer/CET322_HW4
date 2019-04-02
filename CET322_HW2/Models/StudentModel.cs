@@ -1,4 +1,5 @@
 ﻿using CET322_HW2.Domain;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,24 @@ namespace CET322_HW2.Models
         [Display(Name = "Email: ")]
         public string Email { get; set; }
 
-        public virtual IEnumerable<SelectListItem> AvailableDepartments { get; set; }
+		[Required]
+		[Display(Name = "Personal Info: ")]
+		public string PersonalInfo { get; set; }
+
+		public string ImageUrl { get; set; }
+
+		[Display(Name = "Created Date: ")]
+		public DateTime CreatedDate { get; set; }
+		[Display(Name = "DEpartment Name: ")]
+		public string DepartmentName { get; set; }
+
+		public virtual IEnumerable<SelectListItem> AvailableDepartments { get; set; }
         
         public int SelectedDepartmentId { get; set; }
 
         public Department Department { get; set; }
 
-    }
+
+		public IFormFile ImageFile { get; set; }
+	}
 }
